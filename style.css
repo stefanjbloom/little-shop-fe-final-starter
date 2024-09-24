@@ -17,7 +17,9 @@
 }
 
 body {
-  background-color: var(--beige);
+  background-image: url('https://images.pexels.com/photos/907485/pexels-photo-907485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   color: var(--charcoal);
   display: flex;
   height: 100vh;
@@ -45,7 +47,7 @@ input {
 /* ASIDE */
 aside {
   align-items: flex-end;
-  background-color: var(--blue);
+  background-color: transparent;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -60,12 +62,12 @@ header {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 4.5em;
   letter-spacing: 3px;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: normal;
 }
 
@@ -97,7 +99,7 @@ nav button:not(.active-nav):hover {
 
 /* MAIN */
 main {
-  flex-grow: 1;
+  flex-grow: 2;
   overflow-y: auto;
   padding: 20px;
   width: 80%;
@@ -105,7 +107,7 @@ main {
 
 h3 {
   color: var(--charcoal);
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 /* ADD MERCHANT */
@@ -132,12 +134,14 @@ h3 {
 }
 
 /* MERCHANT + ITEM CARDS */
-.merchant, .item {
+.merchant, .item , .coupon{
   align-items: center;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 8px;
+  border-color: #118AB2;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-flow: column wrap;
   justify-content: space-between;
   margin-bottom: 20px;
   padding: 20px;
@@ -145,25 +149,29 @@ h3 {
 }
 
 .merchant:hover,
-.item:hover {
+.item:hover,
+.coupon:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px);
 }
 
-.items-view {
+.items-view, .coupons-view {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.item {
+.item, .coupon {
   flex-direction: column;
   text-align: center;
   width: 30%;
 }
 
 .item p,
-.item h2 {
+.item h2,
+.coupon p,
+.coupon h2 {
+  text-decoration-color: #f1efe6;
   margin: 5px;
 } 
 
