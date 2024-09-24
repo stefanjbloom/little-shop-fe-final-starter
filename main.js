@@ -143,7 +143,7 @@ function showMerchantsView() {
   addRemoveActiveNav(merchantsNavButton, itemsNavButton)
   addNewButton.dataset.state = 'merchant'
   show([merchantsView, addNewButton])
-  hide([itemsView])
+  hide([itemsView, couponsView])
   displayMerchants(merchants)
 }
 
@@ -236,10 +236,11 @@ function getMerchantCoupons(event) {
   let merchantId = event.target.closest("article").id.split('-')[1]
   console.log("Merchant ID:", merchantId)
 
-  fetchData(`merchants/${merchantId}`)
+  fetchData(`merchants/${merchantId}/coupons`)
   .then(couponData => {
     console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData);
+    let coupons = couponData.data;
+    displayMerchantCoupons(coupons);
   })
 }
 
@@ -247,9 +248,23 @@ function displayMerchantCoupons(coupons) {
   show([couponsView])
   hide([merchantsView, itemsView])
 
-  couponsView.innerHTML = `
-    <p>Coupon data will go here.</p>
-  `
+  couponsView.innerHTML = '';
+
+  if (coupons.length > 0) {
+    coupons.forEach(coupon => {
+      couponsView.innerHTML += `
+        <article class="coupon" id="coupon-${coupon.id}">
+          <h2>${coupon.attributes.name}</h2>
+          <p>Code: ${coupon.attributes.code}</p>
+          <p>Percent Off: ${coupon.attributes.percent_off}</p>
+          <p>Status: ${coupon.attributes.status}</p>
+        </article>
+      `;
+    });
+  } else {
+    couponsView.innerHTML = `
+    <p>This Merchant doesn't have any coupons.</p>`;
+  }
 }
 
 //Helper Functions
