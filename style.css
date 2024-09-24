@@ -158,7 +158,7 @@ h3 {
 .items-view, .coupons-view {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .item, .coupon {
