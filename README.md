@@ -1,4 +1,4 @@
-# Hang in There  
+# Little Shop 
 
 Stefan Bloom
 GH: https://github.com/stefanjbloom/little-shop-fe-final-starter
